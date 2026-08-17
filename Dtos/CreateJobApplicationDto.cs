@@ -14,5 +14,8 @@ namespace JobApplicationTracker.Api.Dtos
         
         [StringLength(500)]
         public string? Notes { get; set; } = string.Empty;
+        
+        [StringLength(50)]
+        public string? Location { get; set; }
     }
 }

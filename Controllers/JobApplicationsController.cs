@@ -47,7 +47,8 @@ public class JobApplicationsController : ControllerBase
         {
             Company = dto.Company,
             Position = dto.Position,
-            Notes = dto.Notes
+            Notes = dto.Notes,
+            Location = dto.Location
         };
 
 
