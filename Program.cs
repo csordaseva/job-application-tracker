@@ -1,4 +1,5 @@
 using JobApplicationTracker.Api.Data;
+using JobApplicationTracker.Api.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -17,6 +18,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<JobApplicationService>();
 
 var app = builder.Build();
 
