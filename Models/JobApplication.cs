@@ -13,4 +13,6 @@ public class JobApplication
     public JobApplicationStatus Status { get; set; } = JobApplicationStatus.Applied;
 
     public string? Notes { get; set; }
+
+    public string? Location { get; set; }
 }
