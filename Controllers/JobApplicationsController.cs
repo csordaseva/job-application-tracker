@@ -1,5 +1,6 @@
 using JobApplicationTracker.Api.Data;
 using JobApplicationTracker.Api.Models;
+using JobApplicationTracker.Api.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -40,9 +41,15 @@ public class JobApplicationsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<JobApplication>> Create(JobApplication application)
+    public async Task<ActionResult<JobApplication>> Create(CreateJobApplicationDto dto)
     {
-        application.Id = 0;
+        var application = new JobApplication
+        {
+            Company = dto.Company,
+            Position = dto.Position,
+            Notes = dto.Notes
+        };
+
 
         _dbContext.JobApplications.Add(application);
         await _dbContext.SaveChangesAsync();
