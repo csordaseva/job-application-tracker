@@ -10,7 +10,7 @@ public class JobApplication
 
     public DateTime AppliedAt { get; set; } = DateTime.UtcNow;
 
-    public string Status { get; set; } = "Applied";
+    public JobApplicationStatus Status { get; set; } = JobApplicationStatus.Applied;
 
     public string? Notes { get; set; }
 }
