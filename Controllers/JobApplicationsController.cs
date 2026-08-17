@@ -60,25 +60,23 @@ public class JobApplicationsController : ControllerBase
             application);
     }
 
-    [HttpPut("{id:int}")]
-    public async Task<IActionResult> Update(int id, JobApplication application)
+    [HttpPatch("{id:int}/status")]
+    public async Task<ActionResult<JobApplication>> UpdateStatus(
+    int id,
+    UpdateJobApplicationStatusDto dto)
     {
-        if (id != application.Id)
-        {
-            return BadRequest("The URL id must match the application id.");
-        }
+        var application = await _dbContext.JobApplications.FindAsync(id);
 
-        var exists = await _dbContext.JobApplications.AnyAsync(item => item.Id == id);
-
-        if (!exists)
+        if (application is null)
         {
             return NotFound();
         }
 
-        _dbContext.Entry(application).State = EntityState.Modified;
+        application.Status = dto.Status;
+
         await _dbContext.SaveChangesAsync();
 
-        return NoContent();
+        return Ok(application);
     }
 
     [HttpDelete("{id:int}")]
