@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JobApplicationTracker.Api_net9\JobApplicationTracker.Api.csproj" />
+    <ProjectReference Include="..\JobApplicationTracker.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>

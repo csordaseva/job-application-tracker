@@ -110,5 +110,6 @@ namespace JobApplicationTracker.Tests
             Assert.Equal(newerApplication.Id, result[0].Id);
             Assert.Equal(olderApplication.Id, result[1].Id);
         }
+
     }
 }
